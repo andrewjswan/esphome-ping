@@ -18,13 +18,16 @@ globals:
 
 esphome:
   name: ${my_name}
-  platform: ESP8266
-  board: nodemcuv2
   libraries:
     - ESP8266WiFi
     - https://github.com/akaJes/AsyncPing#95ac7e4
+
+esp8266:
+  board: nodemcuv2
+
 logger:
 ota:
+  platform: esphome
   password: !secret ota_password
 api:
 wifi:
@@ -41,6 +44,7 @@ external_components:
 http_request:
   useragent: esphome/${my_name}
   timeout: 10s
+  verify_ssl: false
 
 sensor:
   - platform: ping
