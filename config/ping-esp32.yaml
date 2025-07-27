@@ -3,7 +3,8 @@ substitutions:
 
 esphome:
   name: ${my_name}
-  platform: ESP32
+
+esp32:
   board: lolin32
 
 logger:
@@ -11,6 +12,7 @@ logger:
 web_server:
 
 ota:
+  platform: esphome
   password: !secret ota_password
 
 wifi:
