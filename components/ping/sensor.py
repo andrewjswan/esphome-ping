@@ -79,7 +79,11 @@ async def to_code(config):
     await cg.register_component(var, config)
 
     if CORE.is_esp8266:
-        cg.add_library("akaJes/AsyncPing", None)
+        cg.add_library(
+            name="AsyncPing",
+            repository="https://github.com/akaJes/AsyncPing.git",
+            version=None,
+        )
 
     cg.add(var.set_target(config[CONF_IP_ADDRESS]))
     cg.add(var.set_timeout(config[CONF_TIMEOUT]))
